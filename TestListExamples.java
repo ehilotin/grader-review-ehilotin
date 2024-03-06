@@ -9,6 +9,12 @@ class IsMoon implements StringChecker {
   }
 }
 
+class IsA implements StringChecker{
+  public boolean checkString(String s) {
+    return s.equalsIgnoreCase("a");
+  }
+}
+
 public class TestListExamples {
   @Test(timeout = 500)
   public void testMergeRightEnd() {
@@ -17,5 +23,14 @@ public class TestListExamples {
     List<String> merged = ListExamples.merge(left, right);
     List<String> expected = Arrays.asList("a", "a", "b", "c", "d");
     assertEquals(expected, merged);
+  }
+
+  @Test(timeout = 500)
+  public void testFilter(){
+    List<String> testList = Arrays.asList("a", "b", "c", "d", "a");
+    IsA check = new IsA();
+    List<String> filtered = ListExamples.filter(testList, check);
+    List<String> expected = Arrays.asList("a", "a");
+    assertEquals(expected, filtered);
   }
 }
