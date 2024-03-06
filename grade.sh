@@ -46,9 +46,12 @@ grep -e "Failure" output.txt > failed-tests.txt
 
 grep -e "Exception" output.txt > error-messages.txt
 
+grep -e "Error:" output.txt > more-error-messages.txt
+
 grep -e "OK" output.txt > results.txt
 
 cat failed-tests.txt
 cat error-messages.txt
+cat more-error-messages.txt
 
 cat results.txt
